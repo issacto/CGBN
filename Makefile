@@ -18,10 +18,10 @@ clean:
 
 download-gtest:
 	wget 'https://github.com/google/googletest/archive/main.zip' -O googletest-main.zip
- 	unzip googletest-main.zip 'googletest-main/googletest/*'
- 	mv googletest-main/googletest gtest
- 	rmdir googletest-main
- 	rm -f googletest-main.zip
+	unzip googletest-main.zip 'googletest-main/googletest/*'
+	mv googletest-main/googletest gtest
+	rmdir googletest-main
+	rm -f googletest-main.zip
 
 kepler: check
 	make -C samples kepler
