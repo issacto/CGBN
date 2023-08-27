@@ -122,13 +122,9 @@ int main() {
   
   printf("Genereating instances ...\n");
   instances=generate_instances(INSTANCES);
-  printf("instances!");
+  std::cout << "Follow this command: " << " ";
   for(int ii =0;ii<INSTANCES;ii++){
-     printf("\nsum: "); // Print the 'sum' data
-     printf(ii);
-     for (int i = 0; i < sizeof(cgbn_mem_t<BITS>); i++) {
-       printf("%x ", instances[ii].sum[i]);
-     }
+    std::cout << instances[ii] << " ";
   }
   
   printf("Copying instances to the GPU ...\n");
