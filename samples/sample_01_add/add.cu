@@ -123,8 +123,12 @@ int main() {
   printf("Genereating instances ...\n");
   instances=generate_instances(INSTANCES);
   printf("instances!");
-  for(int i =0;i<INSTANCES;i++){
-    printf(instances[i]);
+  for(int ii =0;ii<INSTANCES;ii++){
+     printf("\nsum: "); // Print the 'sum' data
+     print(ii);
+     for (int i = 0; i < sizeof(cgbn_mem_t<BITS>); i++) {
+       printf("%x ", instances[ii].sum[i]);
+     }
   }
   
   printf("Copying instances to the GPU ...\n");
