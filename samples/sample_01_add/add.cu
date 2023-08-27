@@ -32,6 +32,8 @@ IN THE SOFTWARE.
 #include "../utility/cpu_support.h"
 #include "../utility/cpu_simple_bn_math.h"
 #include "../utility/gpu_support.h"
+#include <iostream>
+
 
 /************************************************************************************************
  *  This example performs component-wise addition of two arrays of 1024-bit bignums.
