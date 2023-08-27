@@ -122,6 +122,8 @@ int main() {
   
   printf("Genereating instances ...\n");
   instances=generate_instances(INSTANCES);
+  printf("instances!");
+  printf(instances);
   
   printf("Copying instances to the GPU ...\n");
   CUDA_CHECK(cudaSetDevice(0));
