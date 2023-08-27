@@ -125,7 +125,7 @@ int main() {
   printf("instances!");
   for(int ii =0;ii<INSTANCES;ii++){
      printf("\nsum: "); // Print the 'sum' data
-     print(ii);
+     printf(ii);
      for (int i = 0; i < sizeof(cgbn_mem_t<BITS>); i++) {
        printf("%x ", instances[ii].sum[i]);
      }
