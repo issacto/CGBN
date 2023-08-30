@@ -33,7 +33,8 @@ IN THE SOFTWARE.
 #include "../utility/cpu_simple_bn_math.h"
 #include "../utility/gpu_support.h"
 #include <iostream>
-
+#include <iostream>
+using namespace std;
 
 /************************************************************************************************
  *  This example performs component-wise addition of two arrays of 1024-bit bignums.
@@ -95,6 +96,18 @@ void verify_results(instance_t *instances, uint32_t count) {
   printf("All results match\n");
 }
 
+void print_number(instance_t *instances) {
+  for(int index=0;index<count;index++) {
+    cout<<index;
+    cout<<" ";
+    cout<<instances[index].a._limbs;
+    cout<< instances[index].b._limbs;
+    cout<< instances[index].sum._limbs;
+    
+  }
+  printf("All results match\n");
+}
+
 // helpful typedefs for the kernel
 typedef cgbn_context_t<TPI>         context_t;
 typedef cgbn_env_t<context_t, BITS> env_t;
@@ -125,10 +138,6 @@ int main() {
   printf("Genereating instances ...\n");
   instances=generate_instances(INSTANCES);
   std::cout << "Follow this command: " << " ";
-  for(int ii =0;ii<INSTANCES;ii++){
-    std::cout << instances[ii] << " ";
-  }
-  
   printf("Copying instances to the GPU ...\n");
   CUDA_CHECK(cudaSetDevice(0));
   CUDA_CHECK(cudaMalloc((void **)&gpuInstances, sizeof(instance_t)*INSTANCES));
@@ -151,7 +160,7 @@ int main() {
   
   printf("Verifying the results ...\n");
   verify_results(instances, INSTANCES);
-  
+  print_number(instances);
   // clean up
   free(instances);
   CUDA_CHECK(cudaFree(gpuInstances));
