@@ -96,7 +96,7 @@ void verify_results(instance_t *instances, uint32_t count) {
   printf("All results match\n");
 }
 
-void print_number(instance_t *instances) {
+void print_number(instance_t *instances, uint32_t count) {
   for(int index=0;index<count;index++) {
     cout<<index;
     cout<<" ";
@@ -160,7 +160,7 @@ int main() {
   
   printf("Verifying the results ...\n");
   verify_results(instances, INSTANCES);
-  print_number(instances);
+  print_number(instances, INSTANCES);
   // clean up
   free(instances);
   CUDA_CHECK(cudaFree(gpuInstances));
