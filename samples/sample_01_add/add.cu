@@ -97,12 +97,12 @@ void verify_results(instance_t *instances, uint32_t count) {
 }
 
 void print_number(instance_t *instances, uint32_t count) {
-  for(int index=0;index<count;index++) {
-    cout<<index;
-    cout<<" ";
-    cout<<instances[index].a._limbs;
-    cout<< instances[index].b._limbs;
-    cout<< instances[index].sum._limbs;
+  for(int index=0;index<5;index++) {
+    cout<<index<<endl;
+    cout<<" " <<endl;
+    cout<<instances[index].a._limbs <<endl;
+    cout<< instances[index].b._limbs <<endl;
+    cout<< instances[index].sum._limbs <<endl;
     
   }
   printf("All results match\n");
