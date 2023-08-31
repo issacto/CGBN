@@ -84,14 +84,21 @@ instance_t *generate_instances(uint32_t count) {
 
 void print_number(uint32_t *r, uint32_t *x, uint32_t *y, uint32_t count) {
   int     index;
+  string x_number = "";
+  string y_number = "";
+  string r_number = "";
   for(index=0;index<count;index++) {
     cout<<index<<endl;
     cout<<" " <<endl;
+    x_number+=x[index];
+    y_number+=y[index];
+    r_number+=r[index];
     // add pointers
-    cout<< x[index] <<endl;
-    cout<< y[index] <<endl;
-    cout<< r[index] <<endl;
+    
   }
+  cout<< x_number <<endl;
+  cout<< y_number <<endl;
+  cout<< r_number <<endl;
 }
 
 // support routine to verify the GPU results using the CPU
