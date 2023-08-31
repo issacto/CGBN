@@ -86,15 +86,15 @@ void print_number(uint32_t *r, uint32_t *x, uint32_t *y, uint32_t count) {
   int     index;
   cout<<"<----- " <<endl;
   for(index=0;index<count;index++) {
-    cout<< x[index];
+    cout<< x[index]<< " ";
   }
   cout<<""<<endl;
   for(index=0;index<count;index++) {
-    cout<< y[index];
+    cout<< y[index] << " ";
   }
   cout<<""<<endl;
   for(index=0;index<count;index++) {
-    cout<< r[index];
+    cout<< r[index] << " ";
   }
   cout<<""<<endl;
 }
