@@ -98,9 +98,9 @@ void verify_results(instance_t *instances, uint32_t count) {
 }
 
 void print_number(uint32_t *r, uint32_t *x, uint32_t *y, uint32_t count) {
-
-  for(index=0;index<count;index++) {
-     cout<<index<<endl;
+  int     index;
+  for(index=0;index<count;index++) {=
+    cout<<index<<endl;
     cout<<" " <<endl;
     // add pointers
     cout<< x[index] <<endl;
