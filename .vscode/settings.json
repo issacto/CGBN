@@ -2,6 +2,7 @@
     "files.associations": {
         "*.cut": "cut",
         "atomic": "cpp",
-        "cstdint": "cpp"
+        "cstdint": "cpp",
+        "iostream": "cpp"
     }
 }
