@@ -92,20 +92,21 @@ void verify_results(instance_t *instances, uint32_t count) {
       printf("gpu add kernel failed on instance %d\n", index);
       return;
     }
+    print_number(instances[index].sum._limbs, instances[index].a._limbs, instances[index].b._limbs, BITS/32)
   }
   printf("All results match\n");
 }
 
-void print_number(instance_t *instances, uint32_t count) {
-  for(int index=0;index<5;index++) {
-    cout<<index<<endl;
+void print_number(uint32_t *r, uint32_t *x, uint32_t *y, uint32_t count) {
+
+  for(index=0;index<count;index++) {
+     cout<<index<<endl;
     cout<<" " <<endl;
-    cout<<instances[index].a._limbs <<endl;
-    cout<< instances[index].b._limbs <<endl;
-    cout<< instances[index].sum._limbs <<endl;
-    
+    // add pointers
+    cout<< x[index] <<endl;
+    cout<< y[index] <<endl;
+    cout<< r[index] <<endl;
   }
-  printf("All results match\n");
 }
 
 // helpful typedefs for the kernel
@@ -160,7 +161,7 @@ int main() {
   
   printf("Verifying the results ...\n");
   verify_results(instances, INSTANCES);
-  print_number(instances, INSTANCES);
+  // print_number(instances, INSTANCES);
   // clean up
   free(instances);
   CUDA_CHECK(cudaFree(gpuInstances));
