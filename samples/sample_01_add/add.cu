@@ -82,6 +82,18 @@ instance_t *generate_instances(uint32_t count) {
   return instances;
 }
 
+void print_number(uint32_t *r, uint32_t *x, uint32_t *y, uint32_t count) {
+  int     index;
+  for(index=0;index<count;index++) {
+    cout<<index<<endl;
+    cout<<" " <<endl;
+    // add pointers
+    cout<< x[index] <<endl;
+    cout<< y[index] <<endl;
+    cout<< r[index] <<endl;
+  }
+}
+
 // support routine to verify the GPU results using the CPU
 void verify_results(instance_t *instances, uint32_t count) {
   uint32_t correct[BITS/32];
@@ -92,22 +104,12 @@ void verify_results(instance_t *instances, uint32_t count) {
       printf("gpu add kernel failed on instance %d\n", index);
       return;
     }
-    print_number(instances[index].sum._limbs, instances[index].a._limbs, instances[index].b._limbs, BITS/32)
+    print_number(instances[index].sum._limbs, instances[index].a._limbs, instances[index].b._limbs, BITS/32);
   }
   printf("All results match\n");
 }
 
-void print_number(uint32_t *r, uint32_t *x, uint32_t *y, uint32_t count) {
-  int     index;
-  for(index=0;index<count;index++) {=
-    cout<<index<<endl;
-    cout<<" " <<endl;
-    // add pointers
-    cout<< x[index] <<endl;
-    cout<< y[index] <<endl;
-    cout<< r[index] <<endl;
-  }
-}
+
 
 // helpful typedefs for the kernel
 typedef cgbn_context_t<TPI>         context_t;
